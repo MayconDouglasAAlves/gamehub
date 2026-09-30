@@ -4,9 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Jogos</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/svg+xml" th:href="@{/img/gamehub.svg}">
 </head>
 
 <body>
+
+<nav class="menu-topo">
+    <a href="/" class="logo">
+        <img th:src="@{/img/gamehub.svg}" alt="" width="28" height="28">
+        GameHub
+    </a>
+    <a href="/jogos/listagem">Jogos</a>
+    <a href="/desenvolvedoras/listagem">Desenvolvedoras</a>
+</nav>
 
 <h1>Jogos cadastrados</h1>
 
@@ -33,7 +44,7 @@
 
 <hr>
 
-<div th:each="jogo : ${lista}">
+<div class="card" th:each="jogo : ${lista}">
 
     <p>
         <strong>ID:</strong>
@@ -70,8 +81,6 @@
         Editar
     </a>
 
-    &nbsp; | &nbsp;
-
     <a
             th:href="@{/jogos/excluir/{id}(id=${jogo.id})}"
             onclick="return confirm('Tem certeza que deseja excluir este jogo?');">
@@ -79,8 +88,6 @@
         Excluir
 
     </a>
-
-    <hr>
 
 </div>
 
